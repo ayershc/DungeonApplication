@@ -22,6 +22,7 @@ namespace DungeonLibrary
         private int _maxDmg;
         private int _bonusHitChance;
         private bool _isTwoHanded;
+        private WeaponType _type;
 
         //Properties - 1 for each field
         public string WeaponName
@@ -49,17 +50,23 @@ namespace DungeonLibrary
             get { return _isTwoHanded; }
             set { _isTwoHanded = value; }
         }
+        public WeaponType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
 
         //CTORS/Constructors - 1 qualified; and one unqualified (default) if you want Object Initialization Syntax
         public Weapon() { }//default
 
-        public Weapon(string weaponName, int minDmg, int maxDmg, int bonusHitChance, bool isTwoHanded)
+        public Weapon(string weaponName, int minDmg, int maxDmg, int bonusHitChance, bool isTwoHanded, WeaponType type)
         {
             WeaponName = weaponName;
             MinDmg = minDmg;
             MaxDmg = maxDmg;
             BonusHitChance = bonusHitChance;
-            IsTwoHanded = isTwoHanded;          
+            IsTwoHanded = isTwoHanded;
+            Type = type;
         }
 
         //Methods
@@ -68,7 +75,7 @@ namespace DungeonLibrary
         {
             //return base.ToString();
             return $"Weapon: {WeaponName}\n" +
-                $"{(IsTwoHanded ? "Two-" : "One-")}Handed\n" +
+                $"{(IsTwoHanded ? "Two-" : "One-")}Handed {Type}\n" +
                 $"Damage: {MinDmg} - {MaxDmg}\n" +
                 $"Crit Chance: {BonusHitChance}\n";
         }
