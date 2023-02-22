@@ -31,7 +31,7 @@
         public int Life
         {
             get { return _life; }
-            set { _life = value; }
+            set { _life = value >0 ? value : 0; }
         }
         public int HitChance
         {
@@ -47,11 +47,11 @@
         //CTORS/Constructors - 1 fully qualified, 1 default/unqualified
         public Character() { }//default
 
-        public Character(string name, int maxLife, int life, int hitChance, int block)
+        public Character(string name, int maxLife, int hitChance, int block)
         {
             Name = name;
             MaxLife = maxLife;
-            Life = life;
+            Life = maxLife;
             HitChance = hitChance;
             Block = block;
         }
@@ -61,10 +61,10 @@
         public override string ToString()
         {
             //return base.ToString();
-            return $"{Name}\n" +
+            return $"Character: {Name}\n" +
                 $"HP: {Life}/{MaxLife}\n" +
                 $"Hit Chance: {HitChance}\n" +
-                $"Block: {Block}";
+                $"Block: {Block}\n";
         }
         //CalcBlock() returns an int -> return Block;
         public int CalcBlock()
