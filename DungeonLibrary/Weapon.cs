@@ -77,7 +77,7 @@ namespace DungeonLibrary
             return $"Weapon: {WeaponName}\n" +
                 $"{(IsTwoHanded ? "Two-" : "One-")}Handed {Type}\n" +
                 $"Damage: {MinDmg} - {MaxDmg}\n" +
-                $"Crit Chance: {BonusHitChance}\n";
+                $"Crit Chance: {BonusHitChance}%\n";
         }
     }
 }

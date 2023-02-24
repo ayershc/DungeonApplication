@@ -1,6 +1,6 @@
 ﻿namespace DungeonLibrary
 {
-    public class Character
+    public abstract class Character
     {
         //Fields
         private string _name;
@@ -63,23 +63,20 @@
             //return base.ToString();
             return $"Character: {Name}\n" +
                 $"HP: {Life}/{MaxLife}\n" +
-                $"Hit Chance: {HitChance}\n" +
+                $"Hit Chance: {HitChance}%\n" +
                 $"Block: {Block}\n";
         }
         //CalcBlock() returns an int -> return Block;
-        public int CalcBlock()
+        public virtual int CalcBlock()
         {
             return Block;
         }
         //CalcHitChance() returns an int -> return HitChance;
-        public int CalcHitChance()
+        public virtual int CalcHitChance()
         {
             return HitChance;
         }
         //CalcDamage() returns an int -> return 0;
-        public int CalcDamage()
-        {
-            return 0;
-        }
+        public abstract int CalcDamage();//an abstract just says somewhere down the line, one of the child classes MUST implement this with some functionality.        
     }
 }
