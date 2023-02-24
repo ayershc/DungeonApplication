@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonLibrary
 {
-    internal enum Races
+    public enum Races
     {
         Human,
         Orc,
